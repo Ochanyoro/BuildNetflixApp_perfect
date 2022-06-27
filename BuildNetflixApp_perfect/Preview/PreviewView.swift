@@ -21,7 +21,7 @@ struct PreviewView: View {
             
             TrailerPlayerView(
 //                videoURL: vm.movie.trailers.first?.videoURL,
-                videoURL: URL(fileURLWithPath: Bundle.main.path(forResource: "top", ofType: "mp4")!),
+                videoURL: URL(fileURLWithPath: Bundle.main.path(forResource: vm.movie.videoName!, ofType: "mp4")!),
                 //videoURL: URL(string: moviePath!)!,
                 playVideo: .constant(playVideo))
             
