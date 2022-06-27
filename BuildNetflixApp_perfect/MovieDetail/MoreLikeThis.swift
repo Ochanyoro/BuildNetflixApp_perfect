@@ -5,6 +5,7 @@
 //  Created by 大和田一裕 on 2022/06/22.
 //
 
+
 import SwiftUI
 
 struct MoreLikeThis: View {
@@ -30,6 +31,6 @@ struct MoreLikeThis: View {
 
 struct MoreLikeThis_Previews: PreviewProvider {
     static var previews: some View {
-        MoreLikeThis(movies: [exampleMovie38,exampleMovie39,exampleMovie40,exampleMovie41,exampleMovie42,exampleMovie43])
+        MoreLikeThis(movies: exampleMovies)
     }
 }

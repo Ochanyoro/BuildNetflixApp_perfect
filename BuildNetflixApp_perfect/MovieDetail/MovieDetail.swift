@@ -16,8 +16,6 @@ struct MovieDetail: View {
     @State private var selectedSeason = 1
     
     @Binding var movieDetailToShow: Movie?
-    //@Binding var playVideo: Bool
-   
     
     var body: some View {
         ZStack {
@@ -53,25 +51,10 @@ struct MovieDetail: View {
                                     .font(.headline)
                             }
                             
-                            //PlayButton(text: "Play", imageName: "play.fill", backgroundColor: //.red, playVideo: $playVideo)
-                            //.padding(.vertical)
-                            
-                            HStack {
-                                Spacer()
-                                
-                                Image(systemName: "play.fill")
-                                    .font(.headline)
-                                
-                                Text("Play")
-                                    .bold()
-                                    .font(.system(size: 16))
-                                
-                                Spacer()
+                            PlayButton(text: "Play", imageName: "play.fill", backgroundColor: .red) {
+                                //
                             }
-                            .padding(.vertical, 6)
-                            .foregroundColor(.white)
-                            .background(.red)
-                            .cornerRadius(3.0)
+                            .padding(.vertical)
                             
                             CurrentEpisodeInformation(movie: movie)
                             
@@ -146,7 +129,7 @@ struct MovieDetail: View {
 
 struct MovieDetail_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetail(movie: exampleMovie9, movieDetailToShow: .constant(exampleMovie9))
+        MovieDetail(movie: generateMovies(1).first!, movieDetailToShow: .constant(nil))
     }
 }
 
@@ -233,4 +216,3 @@ struct CurrentEpisodeInformation: View {
         }
     }
 }
-

@@ -10,14 +10,9 @@ import AVKit
 
 struct SwiftUIVideoView: View {
     var url: URL
-    var videoName: String? = ""
-    
-    
-    
     
     private var player: AVPlayer {
-        //AVPlayer(url: url)
-            AVPlayer(url: url)
+        AVPlayer(url: url)
     }
     
     var body: some View {
@@ -26,13 +21,7 @@ struct SwiftUIVideoView: View {
 }
 
 struct SwiftUIVideoView_Previews: PreviewProvider {
-    
-   
-    
     static var previews: some View {
-        let bundleDataName: String = "top"
-        let bundleDataType: String = "mp4"
-        
-        SwiftUIVideoView(url: URL(fileURLWithPath: Bundle.main.path(forResource: bundleDataName, ofType: "mp4")!))
+        SwiftUIVideoView(url: exampleVideoURL)
     }
 }

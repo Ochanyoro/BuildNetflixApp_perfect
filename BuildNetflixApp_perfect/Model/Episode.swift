@@ -4,7 +4,6 @@
 //
 //  Created by 大和田一裕 on 2022/06/22.
 //
-
 import Foundation
 
 struct Episode: Identifiable {
@@ -22,6 +21,4 @@ struct Episode: Identifiable {
     var thumbnailURL: URL {
         return URL(string: thumbnailImageURLString)!
     }
-    
-    var imageName: String = ""
 }

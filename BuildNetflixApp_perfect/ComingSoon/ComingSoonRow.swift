@@ -17,22 +17,18 @@ struct ComingSoonRow: View {
     let screen = UIScreen.main.bounds
     
     var player: AVPlayer {
-        if movie.videoName != ""{
-         return AVPlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: movie.videoName, ofType: "mp4")!))
-        } else {
-            return AVPlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "top", ofType: "mp4")!))
-        }
+        AVPlayer(url: URL(string: "https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4")!)
     }
     
     var body: some View {
         VStack {
-            VideoPlayer(player: player)
+            Color.blue
+//            VideoPlayer(player: player)
                 .frame(height: 200)
             
             VStack {
                 HStack {
-                    //KFImage(movie.thumbnailURL)
-                    Image(movie.imageName)
+                    KFImage(movie.thumbnailURL)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: screen.size.width / 3, height: 75)

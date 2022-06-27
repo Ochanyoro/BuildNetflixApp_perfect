@@ -47,10 +47,6 @@ struct Movie: Identifiable {
     var previewImageName: String
     var previewVideoURL: URL?
     
-    var imageName: String = ""
-    
-    var videoName: String?
-    
     var numberOfSeasonsDisplay: String {
         if let num = numberOfSeasons {
             if num == 1 {
@@ -92,4 +88,3 @@ enum MovieType {
     case movie
     case tvShow
 }
-

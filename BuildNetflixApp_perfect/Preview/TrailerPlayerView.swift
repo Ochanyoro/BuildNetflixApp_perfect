@@ -14,7 +14,7 @@ struct TrailerPlayerView: View {
     @Binding var playVideo: Bool
     
     var body: some View {
-        if videoURL != nil{
+        if videoURL != nil {
             VideoPlayer(url: videoURL!, play: $playVideo)
         } else {
             Text("Could not load video")
@@ -24,8 +24,6 @@ struct TrailerPlayerView: View {
 
 struct TrailerPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        let bundleDataName: String = "top"
-        let bundleDataType: String = "mp4"
-        TrailerPlayerView(videoURL: URL(fileURLWithPath: Bundle.main.path(forResource: bundleDataName, ofType: bundleDataType)!), playVideo: .constant(false))
+        TrailerPlayerView(videoURL: nil, playVideo: .constant(true))
     }
 }

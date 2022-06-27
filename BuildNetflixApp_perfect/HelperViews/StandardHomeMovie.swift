@@ -13,8 +13,7 @@ struct StandardHomeMovie: View {
     
     var body: some View {
         GeometryReader { proxy in
-            //KFImage(movie.thumbnailURL)
-            Image(movie.imageName)
+            KFImage(movie.thumbnailURL)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: proxy.size.width, height: proxy.size.height)

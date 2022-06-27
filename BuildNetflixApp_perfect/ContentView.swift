@@ -16,7 +16,6 @@ struct ContentView: View {
     @State private var previewNewPos: CGFloat = 1000
     
     @State private var previewHorizontalDragActive: Bool = false
-    @State private var playVideo: Bool = false
     
     let screen = UIScreen.main.bounds
     
@@ -85,7 +84,7 @@ struct ContentView: View {
             TabView {
                 HomeView(
                     showPreviewFullscreen: $showPreviewFullScreen,
-                    previewStartingIndex: $previewStartingIndex, playVideo: $playVideo)
+                    previewStartingIndex: $previewStartingIndex)
                     .tabItem {
                         Image(systemName: "house")
                         Text("Home")
@@ -120,33 +119,22 @@ struct ContentView: View {
                 .isHidden(!showPreviewFullScreen)
                 .animation(.easeIn)
                 .transition(.move(edge: .bottom))
-            
-                .onChange(of: showPreviewFullScreen, perform: { value in
-                    if value {
-                        // show fullscreen
-                        withAnimation {
-                            previewCurrentPos = .zero
-                            previewNewPos = .zero
-                        }
-                    } else {
-                        // hiding
-                        withAnimation {
-                            self.previewCurrentPos = screen.height + 20
-                            self.previewNewPos = screen.height + 20
-                        }
-                    }
-                })
-            
-            if playVideo == true {
-                ZStack{
-                    Color.black
-                        .edgesIgnoringSafeArea(.all)
-                SwiftUIVideoView(url: URL(fileURLWithPath: Bundle.main.path(forResource: "top", ofType: "mp4")!))
+        }
+        .onChange(of: showPreviewFullScreen, perform: { value in
+            if value {
+                // show fullscreen
+                withAnimation {
+                    previewCurrentPos = .zero
+                    previewNewPos = .zero
+                }
+            } else {
+                // hiding
+                withAnimation {
+                    self.previewCurrentPos = screen.height + 20
+                    self.previewNewPos = screen.height + 20
                 }
             }
-            
-            
-        }
+        })
     }
 }
 
@@ -155,4 +143,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-

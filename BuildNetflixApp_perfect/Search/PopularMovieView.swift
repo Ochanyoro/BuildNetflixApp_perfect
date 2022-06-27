@@ -16,8 +16,7 @@ struct PopularMovieView: View {
     var body: some View {
         GeometryReader { proxy in
             HStack {
-                //KFImage(movie.thumbnailURL)
-                Image(movie.imageName)
+                KFImage(movie.thumbnailURL)
                     .resizable()
                     .frame(width: proxy.size.width / 3)
                     .padding(.leading, 3)

@@ -15,8 +15,7 @@ struct MoviePreviewCell: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            //KFImage(movie.thumbnailURL)
-            Image(movie.imageName)
+            KFImage(movie.thumbnailURL)
                 .resizable()
                 .scaledToFill()
                 .clipShape(Circle())
@@ -25,13 +24,11 @@ struct MoviePreviewCell: View {
                         .stroke(lineWidth: 3.0)
                         .foregroundColor(colors.randomElement())
             )
-                .frame(width: 120, height: 120)
             
             Image(movie.previewImageName)
                 .resizable()
                 .scaledToFit()
-//                .offset(y: -20)
-                .offset(y: 10)
+                .offset(y: -20)
                 .frame(height: 65)
         }
         

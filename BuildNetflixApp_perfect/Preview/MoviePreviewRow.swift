@@ -15,7 +15,7 @@ struct MoviePreviewRow: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("思い出集合写真")
+            Text("Previews")
                 .font(.title3)
                 .bold()
                 .foregroundColor(.white)

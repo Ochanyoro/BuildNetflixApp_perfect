@@ -15,11 +15,10 @@ struct TrailerList: View {
     var body: some View {
         VStack {
             ForEach(trailers) { trailer in
+                
                 VStack(alignment: .leading) {
-                    VideoPreviewImage(imageURL: trailer.thumbnailImageURL, videoURL: trailer.videoURL,imageName: trailer.imageName,videoName: trailer.videoName)
-                        .frame(maxWidth: screen.width,maxHeight: 200)
-                        .clipped()
-                        
+                    VideoPreviewImage(imageURL: trailer.thumbnailImageURL, videoURL: trailer.videoURL)
+                        .frame(maxWidth: screen.width)
                     
                     Text(trailer.name)
                         .font(.headline)

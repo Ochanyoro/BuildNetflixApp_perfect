@@ -13,16 +13,12 @@ struct PreviewView: View {
     
     var playVideo: Bool
     
-    
-    
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
             
             TrailerPlayerView(
-//                videoURL: vm.movie.trailers.first?.videoURL,
-                videoURL: URL(fileURLWithPath: Bundle.main.path(forResource: "top", ofType: "mp4")!),
-                //videoURL: URL(string: moviePath!)!,
+                videoURL: vm.movie.trailers.first?.videoURL,
                 playVideo: .constant(playVideo))
             
             VStack {
@@ -107,6 +103,6 @@ struct PreviewView: View {
 
 struct PreviewView_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewView(vm: PreviewVM(movie: exampleMovie1), playVideo: false)
+        PreviewView(vm: PreviewVM(movie: exampleMovie1), playVideo: true)
     }
 }

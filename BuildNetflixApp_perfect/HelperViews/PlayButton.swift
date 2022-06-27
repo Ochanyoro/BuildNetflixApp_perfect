@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import AVFoundation
 
 struct PlayButton: View {
     
@@ -15,31 +14,28 @@ struct PlayButton: View {
     var imageName: String
     var backgroundColor: Color = Color.white
     
-    @Binding var playVideo :Bool
     
-    let screen = UIScreen.main.bounds
-    
-    //var action: () -> Void
+    var action: () -> Void
     
     var body: some View {
-            Button(action: { playVideo = true }, label: {
-                HStack {
-                    Spacer()
-                    
-                    Image(systemName: imageName)
-                        .font(.headline)
-                    
-                    Text(text)
-                        .bold()
-                        .font(.system(size: 16))
-                    
-                    Spacer()
-                }
-                .padding(.vertical, 6)
-                .foregroundColor(backgroundColor == .white ? .black : .white)
-                .background(backgroundColor)
-                .cornerRadius(3.0)
-            })
+        Button(action: action, label: {
+            HStack {
+                Spacer()
+                
+                Image(systemName: imageName)
+                    .font(.headline)
+                
+                Text(text)
+                    .bold()
+                    .font(.system(size: 16))
+                
+                Spacer()
+            }
+            .padding(.vertical, 6)
+            .foregroundColor(backgroundColor == .white ? .black : .white)
+            .background(backgroundColor)
+            .cornerRadius(3.0)
+        })
     }
 }
 
@@ -49,7 +45,9 @@ struct WhiteButton_Previews: PreviewProvider {
             Color.black
                 .edgesIgnoringSafeArea(.all)
             
-            PlayButton(text: "Play", imageName: "play.fill", playVideo: .constant(false))
+            PlayButton(text: "Play", imageName: "play.fill") {
+                print("Tapped")
+            }
         }
     }
 }
